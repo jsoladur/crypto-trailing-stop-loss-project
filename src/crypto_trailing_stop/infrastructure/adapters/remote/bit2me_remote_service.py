@@ -54,7 +54,7 @@ class Bit2MeRemoteService(AbstractHttpRemoteAsyncService):
             raise ValueError("Bit2Me API configuration is missing or incomplete.")
 
     async def get_account_info(self, *, client: AsyncClient | None = None) -> Bit2MeAccountInfoDto:
-        response = await self._perform_http_request(url="/v1/account", client=client)
+        response = await self._perform_http_request(url="/v3/account", client=client)
         ret = Bit2MeAccountInfoDto.model_validate_json(response.content)
         return ret
 

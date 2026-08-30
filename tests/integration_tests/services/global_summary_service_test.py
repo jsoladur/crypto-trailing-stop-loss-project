@@ -47,7 +47,7 @@ def _prepare_httpserver_mock(
 
     # Get account registration date
     httpserver.expect(
-        Bit2MeAPIRequestMatcher("/bit2me-api/v1/account", method="GET").set_api_key_and_secret(api_key, api_secret),
+        Bit2MeAPIRequestMatcher("/bit2me-api/v3/account", method="GET").set_api_key_and_secret(api_key, api_secret),
         handler_type=HandlerType.ONESHOT,
     ).respond_with_json(
         Bit2MeAccountInfoDto(
